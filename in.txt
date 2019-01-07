@@ -1,0 +1,5 @@
+PROGRAM id
+VAR id : INTEGER
+BEGIN
+id := id
+END
