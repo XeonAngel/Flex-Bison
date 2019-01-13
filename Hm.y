@@ -278,7 +278,7 @@ factorForDiv	: TOK_VARIABLE
 					{
 						if(ts->getValue($1) == -1) //Aici trebuie sa fie == 0, dar pentru a putea demonstra ca functioneaza am folosit valoarea implicita(-1)
 							{
-								sprintf(msg,"%d:%d Eroare semantica: Nu se poate imparti la 0!", @1.first_line, @1.first_column, $1);
+								sprintf(msg,"%d:%d Eroare semantica: Nu se poate imparti la 0!", @1.first_line, @1.first_column);
 								yyerror(msg);
 								YYERROR;
 							}
@@ -295,7 +295,7 @@ factorForDiv	: TOK_VARIABLE
 			{
 				if ($1 == 0)
 				{
-					sprintf(msg,"%d:%d Eroare semantica: Nu se poate imparti la 0!", @1.first_line, @1.first_column, $1);
+					sprintf(msg,"%d:%d Eroare semantica: Nu se poate imparti la 0!", @1.first_line, @1.first_column);
 					yyerror(msg);
 					YYERROR;				
 				}
@@ -328,7 +328,7 @@ id_list_for_rw	: TOK_VARIABLE
 				}
 			}
 		|
-		id_list ',' TOK_VARIABLE
+		id_list_for_rw ',' TOK_VARIABLE
 			{
 				if(ts != NULL)
 				{
